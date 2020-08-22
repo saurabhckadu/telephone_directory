@@ -12,7 +12,7 @@ import * as moment from 'moment';
   styleUrls: ['./add-new-contacts.page.scss'],
 })
 export class AddNewContactsPage implements OnInit {
- photo=""
+ photo="../../../assets/icon/defaultIcon.png"
  added_date=""
  edited_date=""
  sendRequest:any
@@ -46,6 +46,7 @@ export class AddNewContactsPage implements OnInit {
         landline:this.contactDetails.details.landline,
         notes:this.contactDetails.details.notes
       });
+      this.photo=this.contactDetails.details.photo
      }
    }
    catch (error) {
@@ -56,7 +57,7 @@ export class AddNewContactsPage implements OnInit {
    if(this.fieldForm.valid){
      if(this.commonFunction.getSelectedPage()=="home"){
       this.added_date=moment(new Date(Date.now()).toLocaleString().split(',')[0], "MM/DD/YYYY").format("DD/MM/YYYY");
-    let contactValue={"added_date":this.added_date,"edited_date":this.edited_date,"email":this.fieldForm.value.email,"landline":this.fieldForm.value.landline,"mobile":this.fieldForm.value.mobile,"name":{"fname":this.fieldForm.value.fname,"lname":this.fieldForm.value.lname,"mname":this.fieldForm.value.mname},"viewcount":[],"notes":this.fieldForm.value.notes}
+    let contactValue={"added_date":new Date(Date.now()).toLocaleString().split(',')[0],"edited_date":this.edited_date,"email":this.fieldForm.value.email,"landline":this.fieldForm.value.landline,"mobile":this.fieldForm.value.mobile,"name":{"fname":this.fieldForm.value.fname,"lname":this.fieldForm.value.lname,"mname":this.fieldForm.value.mname},"viewcount":[],"notes":this.fieldForm.value.notes,"photo":this.photo}
     console.log(contactValue)
      this.results.result.contacts.push(contactValue)
       this.http.addContact(this.results.result.id,this.results.result.contacts)
@@ -65,7 +66,7 @@ export class AddNewContactsPage implements OnInit {
      }
      else{
       this.added_date=moment(new Date(Date.now()).toLocaleString().split(',')[0], "MM/DD/YYYY").format("DD/MM/YYYY");
-      let contactValue={"added_date":this.contactDetails.details.added_date,"edited_date":this.added_date,"email":this.fieldForm.value.email,"landline":this.fieldForm.value.landline,"mobile":this.fieldForm.value.mobile,"name":{"fname":this.fieldForm.value.fname,"lname":this.fieldForm.value.lname,"mname":this.fieldForm.value.mname},"viewcount":this.contactDetails.details.viewcount,"notes":this.fieldForm.value.notes}
+      let contactValue={"added_date":this.contactDetails.details.added_date,"edited_date":new Date(Date.now()).toLocaleString().split(',')[0],"email":this.fieldForm.value.email,"landline":this.fieldForm.value.landline,"mobile":this.fieldForm.value.mobile,"name":{"fname":this.fieldForm.value.fname,"lname":this.fieldForm.value.lname,"mname":this.fieldForm.value.mname},"viewcount":this.contactDetails.details.viewcount,"notes":this.fieldForm.value.notes,"photo":this.photo}
       console.log(contactValue)
       this.results.result.contacts[this.contactDetails.index]=contactValue
         this.http.addContact(this.results.result.id,this.results.result.contacts)
@@ -110,15 +111,17 @@ export class AddNewContactsPage implements OnInit {
  openCamera(){
    const options: CameraOptions = {
   quality: 50,
-  destinationType: this.camera.DestinationType.FILE_URI,
+  destinationType: this.camera.DestinationType.DATA_URL,
   encodingType: this.camera.EncodingType.JPEG,
   mediaType: this.camera.MediaType.PICTURE
 }
 
 this.camera.getPicture(options).then((imageData) => {
  let base64Image = 'data:image/jpeg;base64,' + imageData;
+ this.photo=base64Image;
 }, (err) => {
 
 });
  }
+ 
 }

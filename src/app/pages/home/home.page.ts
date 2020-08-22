@@ -44,6 +44,7 @@ export class HomePage implements OnInit {
     catch (error) {
       console.error();
     }
+    
   }
   addContacts() {
     this.navCtrl.navigateForward('/add-new-contacts')

@@ -10,11 +10,11 @@
     </ion-row>
     <ion-row>
       <ion-col col-12 style="text-align: center;">
-        <img class="profile-photo" src="../../../assets/icon/defaultIcon.png" (click)="getImage()">
+        <img class="profile-photo" [src]="photo" (click)="openCamera()">
       </ion-col>
     </ion-row>
     <ion-row class="ion-no-padding">
-      <ion-col class="ion-no-padding" style="text-align: center;font-size: 1rem;color:#4663b3 ;text-decoration-line: underline;" (click)="getImage()">Add photo</ion-col>
+      <ion-col class="ion-no-padding" style="text-align: center;font-size: 1rem;color:#4663b3 ;text-decoration-line: underline;" (click)="openCamera()">Add photo</ion-col>
     </ion-row>
   </ion-grid>
   <form padding-right [formGroup]="fieldForm">

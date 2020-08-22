@@ -4,6 +4,7 @@ import { NativePageTransitions, NativeTransitionOptions } from '@ionic-native/na
 import * as moment from 'moment';
 import { NavController } from '@ionic/angular';
 import { HttpService } from 'src/app/services/http.service';
+import {DomSanitizer}from '@angular/platform-browser';
 
 @Component({
   selector: 'app-view-details-modal',
@@ -11,6 +12,7 @@ import { HttpService } from 'src/app/services/http.service';
   styleUrls: ['./view-details-modal.page.scss'],
 })
 export class ViewDetailsModalPage implements OnInit {
+  photo="../../../assets/icon/defaultIcon.png"
 result:any
 index:any
 phone=""
@@ -21,7 +23,7 @@ name="Saurabh Kadu"
 date="Created : 20 Mar 2020"
 totalView="Total view count : 20"
 
-  constructor(private commonFunction:CommonFunctionService,private navCtrl:NavController,private http:HttpService,private nativePageTransitions: NativePageTransitions) { }
+  constructor(private commonFunction:CommonFunctionService,private navCtrl:NavController,private http:HttpService,private nativePageTransitions: NativePageTransitions,private DomSanitizer: DomSanitizer) { }
 
   ngOnInit() {
     this.commonFunction.setSelectedPage("view")
@@ -32,15 +34,18 @@ totalView="Total view count : 20"
     this.landline=this.result.landline
     this.email=this.result.email
     this.notes=this.result.notes
+    this.photo=this.result.photo
     var newDate = moment(this.result.added_date, "DD/MM/YYYY").format("Do MMM YYYY");
     this.date="Created : "+newDate
     console.log(this.result+" "+this.index)
   }
   openHomePage(){
+    this.commonFunction.setSelectedPage('home')
     this.navCtrl.navigateRoot('/home')
   }
 
   openEditPage(){
+    this.commonFunction.setSelectedPage('view')
     this.navCtrl.navigateRoot('/add-new-contacts')
   }
   deleteContacts(){
@@ -50,6 +55,7 @@ totalView="Total view count : 20"
       fullResult.result.contacts.splice(this.index, 1);
     }
     this.http.addContact(fullResult.result.id,fullResult.result.contacts)
+    this.commonFunction.setSelectedPage('home')
     this.navCtrl.navigateRoot('/home')
   }
   viewHistory(){
@@ -59,5 +65,10 @@ totalView="Total view count : 20"
     }
     this.nativePageTransitions.flip(option);
     this.navCtrl.navigateForward('/history')
+  }
+  sanatizeBase64Image(image) {
+    if(image) {
+      return this.DomSanitizer.bypassSecurityTrustResourceUrl("data:image/jpeg;base64,"+image);
+    }
   }
 }
