@@ -1,0 +1,58 @@
+<ion-content>
+  <ion-grid class="profile-intro">
+    <ion-row style="padding-top: 2vh;">
+      <ion-col style="font-size: 1.4rem;padding-left: 2.5vh;text-align: left;color: #4663b3;" size="6" (click)="openHomePage()">
+        Cancel
+      </ion-col>
+      <ion-col type="submit" style="font-size: 1.4rem;padding-right: 2.5vh;text-align: right;color: #4663b3;" size="6" (click)="submitValue()">
+        Done
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-12 style="text-align: center;">
+        <img class="profile-photo" src="../../../assets/icon/defaultIcon.png" (click)="getImage()">
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-no-padding">
+      <ion-col class="ion-no-padding" style="text-align: center;font-size: 1rem;color:#4663b3 ;text-decoration-line: underline;" (click)="getImage()">Add photo</ion-col>
+    </ion-row>
+  </ion-grid>
+  <form padding-right [formGroup]="fieldForm">
+  <div style="margin:3vh 3vh 3vh 3vh">
+    <ion-item lines="none">
+      <ion-label style="--color:#ffffff" position="stacked">First name *</ion-label>
+      <ion-input placeholder="First name" formControlName="fname" style="--padding-start: 2vh;"></ion-input>
+      <p style="margin:-1vh 0vh 0vh 2vh;color: red;" *ngIf="fieldForm.get('fname').invalid && fieldForm.get('fname').touched">Enter valid first name</p>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-label style="--color:#ffffff" position="stacked">Middle name</ion-label>
+      <ion-input placeholder="Middle name" formControlName="mname" style="--padding-start: 2vh;"></ion-input>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-label style="--color:#ffffff" position="stacked">Last name *</ion-label>
+      <ion-input placeholder="Last name" formControlName="lname" style="--padding-start: 2vh;"></ion-input>
+      <p style="margin:-1vh 0vh 0vh 2vh;color: red;" *ngIf="fieldForm.get('lname').invalid && fieldForm.get('lname').touched">Enter valid last name</p>
+    </ion-item>
+      <ion-item lines="none">
+        <ion-label style="--color:#ffffff" position="stacked">Email</ion-label>
+        <ion-input type="text" placeholder="abc@gmail.com" formControlName="email" style="--padding-start: 2vh;"></ion-input>
+        <p style="margin:-1vh 0vh 0vh 2vh;color: red;" *ngIf="fieldForm.get('email').invalid && fieldForm.get('email').touched">Enter valid email</p>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label style="--color:#ffffff" position="stacked">Mobile Number *</ion-label>
+        <ion-input type="number" placeholder="9876543210" formControlName="mobile" style="--padding-start: 2vh;"></ion-input>
+        <p style="margin:-1vh 0vh 0vh 2vh;color: red;" *ngIf="fieldForm.get('mobile').invalid && fieldForm.get('mobile').touched">Enter valid mobile number</p>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label style="--color:#ffffff" position="stacked">Landline</ion-label>
+        <ion-input type="number" placeholder="xxx-xxxxxxx" formControlName="landline" style="--padding-start: 2vh;"></ion-input>
+        <p style="margin:-1vh 0vh 0vh 2vh;color: red;" *ngIf="fieldForm.get('landline').invalid && fieldForm.get('landline').touched">Enter valid landline number</p>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label style="--color:#ffffff" position="stacked">Notes</ion-label>
+        <ion-textarea type="text" placeholder="Enter notes here..." maxlength=100 formControlName="notes" style="--padding-start: 2vh;"></ion-textarea>
+      </ion-item>
+
+</div>
+</form>
+</ion-content>

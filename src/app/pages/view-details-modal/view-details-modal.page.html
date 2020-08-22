@@ -1,0 +1,65 @@
+<ion-content>
+  <div style="background-color:#32303b;">
+  <ion-row style="padding-top: 2vh;">
+    <ion-col size="1" (click)="openHomePage()">
+      <ion-icon style="zoom: 2.2;" color="tertiary" name="chevron-back-outline"></ion-icon>
+    </ion-col>
+    <ion-col style="font-size: 1.4rem;padding-top: 1.4vh;padding-left: 2vh;color:#4663b3 ;" size="4" (click)="openHomePage()">
+      Contacts
+    </ion-col>
+    <ion-col size="3.5"></ion-col>
+    <ion-col size="2" style="text-align: right;" (click)="openEditPage()">
+      <ion-icon style="zoom: 2;" color="tertiary" name="create-outline"></ion-icon>
+    </ion-col>
+    <ion-col size="1" style="text-align: left;" (click)="deleteContacts()">
+      <ion-icon style="zoom: 2;" color="tertiary" name="trash-outline"></ion-icon>
+    </ion-col>
+  </ion-row>
+  <ion-grid class="profile-intro" style="margin-top: -4vh;">
+    <ion-row>
+      <ion-col col-12 style="text-align: center;">
+        <img class="profile-photo" src="../../../assets/icon/defaultIcon.png">
+      </ion-col>
+    </ion-row>
+      <ion-row class="ion-no-padding">
+        <ion-col class="ion-no-padding" style="text-align: center;font-size: 1.4rem;color:white;">{{name}}</ion-col>
+      </ion-row>
+      <ion-row class="ion-no-padding">
+        <ion-col class="ion-no-padding" style="text-align: center;font-size: 1rem;color:darkgray;">{{date}}</ion-col>
+      </ion-row>
+  </ion-grid>
+</div>
+  <div class="line">
+  <ion-row class="label">
+    Phone
+  </ion-row>
+  <ion-row class="value">
+    {{phone}}
+  </ion-row>
+</div>
+<div class="line">
+  <ion-row class="label">
+    Landline
+  </ion-row>
+  <ion-row class="value">
+    {{landline}}
+  </ion-row>
+  </div>
+  <div class="line">
+  <ion-row class="label">
+    Email
+  </ion-row>
+  <ion-row class="value">
+    {{email}}
+  </ion-row>
+  </div>
+  <div class="line">
+  <ion-row class="label">
+    Notes
+  </ion-row>
+  <ion-row class="value">
+    {{notes}}
+  </ion-row>
+  </div>
+  <ion-button expand="block" color="tertiary" class="shadow-red" (click)="viewHistory()">View history</ion-button>
+</ion-content>

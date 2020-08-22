@@ -1,0 +1,17 @@
+<ion-content>
+  <ion-row>
+    <ion-icon style="zoom: 2.2;margin: 2vh 0vh 0vh 2vh;" color="tertiary" name="close-circle-outline" (click)="closePage()"></ion-icon>
+  </ion-row>
+  <ion-card style="margin-top: 22vh;background-color: #2c2c2e;">
+    <ion-card-header style="background-color: #2c2c2e;">
+      <ion-card-title style="color: white;">{{totalCount}}</ion-card-title>
+      <ion-card-subtitle style="color: white;">{{createdDate}}</ion-card-subtitle>
+      <ion-card-subtitle style="color: white;">{{updatedDate}}</ion-card-subtitle>
+      
+    </ion-card-header>
+  
+    <ion-card-content >
+      <canvas #barChart></canvas>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

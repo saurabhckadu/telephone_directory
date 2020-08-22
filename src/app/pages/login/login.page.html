@@ -1,0 +1,25 @@
+<ion-content>
+  <div id="topDiv">
+    <img src="../../../assets/icon/loginLogo.png"/>
+  </div>
+
+<div id="alignment">
+  <h2 style="color: #d9b94c;text-align: center;margin-bottom: 5vh;">Login</h2>
+  <ion-input class="border" placeholder="Email" [(ngModel)]="userName"></ion-input>
+
+  <ion-input class="border" placeholder="Password" [(ngModel)]="password"></ion-input>
+
+<ion-row>
+  <ion-col size="4.8" style="text-align: right;">
+  <ion-checkbox (ionChange)="rememberMe($event)" [(ngModel)]="isChecked"></ion-checkbox>
+  </ion-col>
+  <ion-col style="font-size: 1rem;color: white;">
+ Remember me
+  </ion-col>
+</ion-row>
+<ion-button expand="block" color="tertiary" class="shadow-red" (click)="login()">Login</ion-button>
+<ion-row>
+  <ion-col style="text-align: center;margin-top: 1vh;font-size: 1rem;color: white;text-decoration-line: underline;" [routerLink]="['/registration']">Dont have an account? Register </ion-col>
+</ion-row>
+</div>
+</ion-content>

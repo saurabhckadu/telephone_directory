@@ -1,0 +1,21 @@
+<ion-content padding>
+  <div id="topDiv">
+    <img src="../../../assets/icon/loginLogo.png"/>
+  </div>
+
+
+  <form [formGroup]="signinForm">
+    <div id="alignment">
+      <h2 style="color: #d9b94c;text-align: center;margin-bottom: 5vh;">Register</h2>
+      <ion-input class="border" placeholder="Email" formControlName="user_name"></ion-input>
+      <p style="margin:-1vh 0vh 0vh 2vh;color: white;" *ngIf="signinForm.get('user_name').invalid && signinForm.get('user_name').touched">Enter valid email</p>
+      <ion-input class="border" placeholder="Password" formControlName="password"></ion-input>
+      <p style="margin:-1vh 0vh 0vh 2vh;color: white;" *ngIf="signinForm.get('password').invalid && signinForm.get('password').touched">Minimum six characters, combination of upper letter lower letter and digit</p>
+    </div>
+</form>
+
+<ion-button expand="block" color="tertiary" class="shadow-red" (click)="register()">Register</ion-button>
+<ion-row>
+  <ion-col style="text-align: center;font-size: 1rem;color: white;text-decoration-line: underline;margin-top: 0.5vh;" [routerLink]="['/login']">Already have an account? Login </ion-col>
+</ion-row>
+</ion-content>

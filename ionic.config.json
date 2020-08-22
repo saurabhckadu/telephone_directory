@@ -1,5 +1,7 @@
 {
   "name": "telephone_directory",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

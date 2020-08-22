@@ -1,0 +1,66 @@
+.profile-photo{
+    border-radius: 50%;
+    margin-top: 0px;
+    width: 9em !important;
+    height: 9em !important;
+}
+
+.profile-info{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+}
+
+.info-square{
+    text-align: center;
+}
+
+.follow-button{
+    width:90%;
+    margin: 0px 10px;
+    background-color: #3E99ED;
+}
+
+.more-details{
+    padding-left: 10px;
+}
+.image-grid{
+    padding: 0px;
+    margin: 0px;
+}
+
+.single-row{
+    height: 18rem;
+}
+
+.single-image{
+    padding:0px;
+}
+.value{
+    color:#4663b3 ;
+    font-size: 1.4rem;
+    padding: 0vh 1.5vh 1.5vh 2.5vh;
+}
+
+.label{
+    font-size: 1.1rem;
+    padding: 1vh 1vh 0vh 2.5vh;
+    color: white;
+}
+.shadow-red{
+    --border-radius: 1.7vh;
+    text-transform: none;
+    font-size: 1.2rem;
+    margin: 10vh 13vh 0vh 13vh;
+}
+.line{
+    background:#32303b;
+    margin: 1vh 1vh 0vh 1vh;
+    border-radius: 2vh;
+}
+ion-content{
+    
+    --background: #1d1c22;
+}
